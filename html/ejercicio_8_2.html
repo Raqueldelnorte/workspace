@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de satisfacción</title>
+    <link rel="stylesheet" href="ejercicio_8_2.css">
+
+</head>
+</head>
+
+<body>
+    <form id="surveyForm">
+    <form action="/check.html" method="post">
+    <label for="fecha">Indica la fecha:</label>
+    <input type="date" id="fecha">
+    <br> <br>
+    
+    
+    <label>1.- Indica el tiempo que hace que compras en nuestra tienda</label>
+  <br><br>
+    <div>
+      <input type="radio" id="primeravez" name="tiempo"/>
+      <label for="primeravez">Por primera vez</label>
+    </div>
+    <div>
+        <input type="radio" id="hacetresmeses" name="tiempo"/>
+        <label for="hacetresmeses">Hace 3 meses</label>
+    </div>
+    <div>
+        <input type="radio" id="haceseismeses" name="tiempo"/>
+        <label for="haceseismeses">Hace 6 meses</label>
+    </div>
+    <div>
+        <input type="radio" id="desiempre" name="tiempo" checked/>
+        <label for="desiempre">De siempre</label>
+    </div>
+
+    <br>
+    <label for="numprod">2.- Cuántos productos compras habitualmente:</label>
+    <input id="numprod" type="number" name="numprod" value="0" required min="1" oninvalid="this.setCustomValidity('Por favor, ingresa un número mayor que cero y no vacío.')" oninput="this.setCustomValidity('')" />
+    <br><br>
+    <label>3.- Elige tu nivel de satisfacción:</label>
+  
+    <div>
+    <br>
+      <input type="radio" id="Baja" name="drone" value="Baja" />
+      <label for="Baja">Baja</label>
+    </div>
+  
+    <div>
+      <input type="radio" id="Media" name="drone" value="Media" />
+      <label for="Media">Media</label>
+    </div>
+  
+    <div>
+      <input type="radio" id="Alta" name="drone" value="Alta" checked />
+      <label for="Alta">Alta</label>
+    </div>
+    <br>
+        
+    <label for="cal">4.- Evalúa la calidad de los productos:</label><br />
+    <input type="range" id="value" name="cal" list="markers" />
+
+    <datalist id="markers">
+    <option value="0"></option>
+    <option value="25"></option>
+    <option value="50"></option>
+    <option value="75"></option>
+    <option value="100"></option>
+    </datalist>      
+
+    <br><br>
+    <label for="email">Introduce tu email:</label>
+
+    <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Por favor, introduce un email válido. Ejemplo: usuario@dominio.com" />
+    <br><br>
+    <button type="submit"><strong>Enviar</strong></button>
+<br> <br>
+    <input type="reset" value="Reiniciar Formulario" />
+</form>  
+</body>
+</html>

@@ -1,0 +1,74 @@
+#titulo_principal {
+    color: rgb(126, 118, 10);
+    font-size: 50px;
+    border: 3px solid #007BFF;
+}
+
+#titulo_secundario{
+    color: rgb(146, 132, 22);
+    font-style: italic;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.texto_descripcion{
+    font-weight: bold;
+    color: rgb(23, 3, 3);
+    font-size: 18px;
+    margin: 30x;
+    border: 3px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+li + li {
+    color:red
+}
+
+footer p:first-of-type::before{
+    content: " !!!!! "
+}
+
+footer p:first-of-type::after{
+    content: " !!!!! "
+}
+
+body {
+    margin-top: 30px;    /* Margen superior */
+    margin-right: 50px;  /* Margen derecho */
+    margin-bottom: 30px; /* Margen inferior */
+    margin-left: 50px;   /* Margen izquierdo */
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #333; /* Añadir un borde */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto 3D */
+}
+
+/* Aplicar la imagen de fondo al body de la página */
+body {
+    background-image: url('fondosuave.jpg'); /* URL de la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-size: cover; /* Ajustar la imagen para cubrir todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    height: 100vh; /* Asegurar que el body tenga altura completa */
+    margin: 0;
+}
+
+
+
+/* Aplicar la imagen de fondo al footer de la página */
+footer {
+    background-image: url('fondosuave.jpg'); /* URL de la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-size: cover; /* Ajustar la imagen para cubrir todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    height: 100vh; /* Asegurar que el body tenga altura completa */
+    margin: 0;
+}
+
+

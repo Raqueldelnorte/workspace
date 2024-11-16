@@ -1,0 +1,316 @@
+/*logo de la empresa en la cabecera */
+.logo {
+    width: 120px; /* Ancho del logo */
+    height: auto; /* Mantener proporciones */
+    margin-right: 15px; /* Espacio entre logo y nombre */
+}
+/*Nombre de la empresa en la cabecera de todas las páginas*/
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: #978383; /* Color de fondo para el párrafo */
+    padding: 10px 20px; /* Espaciado interno */
+}
+.company-name {
+    font-size: 60px; /* Tamaño de fuente para el nombre de la empresa */
+    color: #ee0707; /* Color del texto */
+}
+
+/* Estilos del menú de navegación */
+.navbar {
+    background-color: black;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #f4f4f4;
+    text-decoration: underline;
+}
+
+.mensaje-bienvenida {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 900px; /* Limita el ancho del párrafo */
+    margin: 0 auto; /* Centra el párrafo */
+    padding: 20px; /* Añade espacio interno en el contenedor del texto */
+    background-color: #f5f0f0; /* Color de fondo para el párrafo */
+    border-radius: 10px; /* Esquinas redondeadas */
+    color: #333;
+    line-height: 1.6; /* Espaciado entre líneas */    
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* estilo del vídeo de fondo como animación*/
+.video-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Asegura que el video cubra toda la pantalla */
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+/* Aceptación del usuario y contraseña */
+.success-message {
+    color: green;
+    text-align: center;
+    margin-top: 15px;
+}
+/* Formato del contenedor*/
+.login-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Formato del título del contenedor*/
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+/*formato al botón*/
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color:red;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+/* color al botón*/
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+/*al situar cursor los botones los cambia a azul*/
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+/* al pasar cursor activa línea*/
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+body {
+    margin: 0;
+    padding:10px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+
+/* Navegación */
+nav ul {
+    display: flex;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    gap: 10px;
+}
+
+input, textarea, button {
+    padding: 8px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Animación de bienvenida */
+.animacion-bienvenida {
+    animation: fadeIn 3s ease-in;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Iframe del mapa incluido en contactos */
+iframe {
+    width: 49%;
+    height: 450px;
+    border: 0;
+}
+/* contenedor de columnas en contactos */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/*Ancho de las columnas de contactos*/
+.column {
+    width: 45%;
+}
+/*Titulos de las columnas*/
+.title {
+    color: red;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Estilo página servicios */
+
+.services-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center;
+    padding: 40px 0;
+    
+}
+
+.service-card {
+    background-color: #f5f0f0; /* Color de fondo para el párrafo */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 405px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Oculta el contenido hasta pulsar Enviar */
+#welcomeMessage {
+    display: none;
+}
+/* Los títulos en negrita y con espacio arriba */
+.titulo {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.service-image {
+    width: 100%;
+    max-width: 300px; /* Ajusta el tamaño según sea necesario */
+    transition: transform 0.5s ease; /* Animación para rotar la imagen */
+    padding: 20px;
+}
+
+/* Estilo base de la lista de Iniciar sesión */
+ul.lista-estrella {
+    list-style: none; /* Elimina el estilo predeterminado de viñetas */
+    padding-left: 0;
+  }
+  
+  /* Estilo para cada elemento de la lista */
+  ul.lista-estrella li {
+    position: relative; /* Necesario para posicionar la estrella */
+    padding-left: 30px; /* Espacio para la estrella */
+    
+  }
+  
+  /* Estilo de la estrella como viñeta */
+  ul.lista-estrella li::before {
+    content: '★'; /* Estrella */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente la estrella */
+    font-size: 24px; /* Tamaño de la estrella */
+    color: gold; /* Color dorado para la estrella */
+  }
+/*La animación solo aparece en el index.html durante 5 segundos y luego desaparece*/
+  @keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.video-section {
+    animation: fadeInOut 5s ease-in-out forwards;
+}

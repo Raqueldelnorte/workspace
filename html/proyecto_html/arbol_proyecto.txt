@@ -1,0 +1,32 @@
+proyecto_html
+├── contactos.html
+├── css
+│   └── estilos.css
+├── eventos.html
+├── img
+│   ├── animacion2.mp4
+│   ├── banquete.jpg
+│   ├── beach-banquete.jpg
+│   ├── blue.jpg
+│   ├── camera-581126_640.jpg
+│   ├── coordinador.jpg
+│   ├── decoración.jpg
+│   ├── decoydiseño.jpg
+│   ├── experiencia.jpg
+│   ├── fondopink.jpg
+│   ├── gestor.jpg
+│   ├── juntos.jpg
+│   ├── logoempresa.png
+│   ├── logo.ico
+│   ├── planificación.jpg
+│   ├── playa.mp4
+│   └── profesional.png
+├── index.html
+├── login.html
+├── Memoria.odt
+├── Readme.md
+├── recover.html
+├── servicios.html
+└── sobremi.html
+
+3 directories, 27 files

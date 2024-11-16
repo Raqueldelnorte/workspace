@@ -1,0 +1,57 @@
+.imagen_cambio {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    max-width: 400px;  
+    
+}
+
+    .filtro2 {
+    filter: sepia(100%);    
+    }
+    .filtro3 {
+    filter: blur(5px);
+    }
+    .filtro4 {
+    filter: brightness(0.5);
+    }
+    .filtro5 {
+    filter: grayscale(100%);
+    }
+    .filtro6 {
+    filter: invert(100%);
+    }
+    .filtro7 {
+    filter: hue-rotate(90deg);
+    }
+    .filtro8 {
+    filter: opacity(0.7);
+    }
+    .filtro9 {
+    filter: saturate(200%);
+    }
+    .filtro10 {
+    filter: contrast();
+    }
+    .filtro11 {
+    filter: grayscale(50%);
+    }
+    .filtro12 {
+    filter: sepia(30%);
+    }
+
+    .imagen_cambio img:hover {
+        filter: none;
+        transition: filter 0.3s ease;
+    }
+
+    .imagen_cambio img {
+        transition: filter 5s ease-in-out, transform 5s linear, opacity 5s ease 0s;
+    }
+
+    .imagen_cambio img:hover {
+        filter: none;
+        transform: scale(1.1); 
+        opacity: 1;
+    }

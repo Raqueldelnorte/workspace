@@ -1,0 +1,5 @@
+/* Para visualizar las tablas es recomendable usar las siguientes propiedades de estilo: */
+
+Table, td, th {
+  border: black 1px solid;
+ }
