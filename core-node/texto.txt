@@ -1,0 +1,2 @@
+Este es un archivo creado en core-node
+Este archivo está en master y en version-js
