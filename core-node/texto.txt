@@ -1,2 +1,4 @@
 Este es un archivo creado en core-node
-Este archivo está en master y en version-js
+Este archivo está en master y en version-js.
+me hace los cambios directamente en la rama y en el origen
+Ahora estoy en el texto.txt de version-js
