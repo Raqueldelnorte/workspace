@@ -1,8 +1,0 @@
-Este es un archivo creado en core-node
-Este fichero está en master y en version-js.
-me hace los cambios directamente en la rama y en el origen
-Ahora estoy en el texto.txt de version-js
-Añado la quinta línea
-Añado sexta línea
-
-Estoy en una línea nueva que no está en master

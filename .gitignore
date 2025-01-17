@@ -91,3 +91,4 @@ bower_components/
 
 # Optional stylelint cache
 .stylelintcache
+node_modules/
