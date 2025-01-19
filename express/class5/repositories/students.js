@@ -1,4 +1,5 @@
 const db = require('../models');
+// Forma abreviada de
 
 module.exports = {
   getAll() {
