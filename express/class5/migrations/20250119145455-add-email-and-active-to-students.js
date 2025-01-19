@@ -17,7 +17,7 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     return queryInterface.removeColumn('students', 'email')
       .then(() => {
-      return queryInterface.removeColumn('students', 'active');
+        return queryInterface.removeColumn('students', 'active');
       });
   },
 };
