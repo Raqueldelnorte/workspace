@@ -25,24 +25,7 @@ app.get('/students/:id', (req, res) => {
       res.status(500).send('Internal server error');
     });
 });
-// Crear un nuevo estudiante
-//app.post('/students', (req, res) => {
-//  if (!(req.body.name && req.body.last_name && req.body.date_of_birth)) {
-//    res.status(422).send('All fields are required (name, last_name, date_of_birth)');
-//  } else {
-//    students.insert(req.body)
-//      .then((result) => {
-//        res.json({
-//          success: true,
-//          message: 'Student was saved successfully',
-//          student: result, // Incluye el resultado en la respuesta
-//        });
-//      })
-//      .catch((err) => {
-//        res.json({ success: false, message: err.detail });
-//      });
-//  }
-//});
+
 // Endpoint POST para agregar un estudiante
 app.post(
   '/students',
@@ -59,21 +42,37 @@ app.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ success: false, errors: errors.array() });
     }
+    const { email } = req.body;
 
-    // Si la validación es correcta, proceder a insertar el estudiante
-    students
-      .insert(req.body)
-      .then((result) => {
-        res.json({
-          success: true,
-          message: 'Student was saved successfully',
-          student: result,
+    // Verificar si ya existe un estudiante con el mismo email
+    students.getByEmail(email).then((existingStudent) => {
+      if (existingStudent) {
+        return res.status(422).json({
+          success: false,
+          message: 'A user already exists with this email',
         });
-      })
-      .catch((err) => {
-        // Enviar un mensaje genérico si hay un error
-        res.status(500).json({ success: false, message: 'Internal server error' });
-      });
+      }
+
+      // Si la validación es correcta, proceder a insertar el estudiante
+      students
+        .insert(req.body)
+        .then((result) => {
+          res.json({
+            success: true,
+            message: 'Student was saved successfully',
+            student: result,
+          });
+        })
+        .catch((err) => {
+          // Enviar un mensaje genérico si hay un error
+          console.error(err); // Mostrar el error en consola para depuración
+          res.status(500).json({ success: false, message: 'Internal server error' });
+        });
+    }).catch((err) => {
+      // Si la consulta al email falla, responder con error 500
+      console.error(err);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    });
   },
 );
 

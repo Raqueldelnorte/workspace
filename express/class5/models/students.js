@@ -11,14 +11,32 @@ module.exports = (sequelize) => {
       // define association here
     }
   }
-  students.init({
-    name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    date_of_birth: DataTypes.DATE,
-  }, {
-    sequelize,
-    modelName: 'students',
-    tableName: 'students',
-  });
+  students.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false, // El campo name no puede ser nulo
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        allowNull: false, // El campo last_name no puede ser nulo
+      },
+      date_of_birth: {
+        type: DataTypes.DATE,
+        allowNull: false, // El campo date_of_birth no puede ser nulo
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false, // El campo email no puede ser nulo
+        unique: true, // El email debe ser único
+      },
+    },
+    {
+      sequelize,
+      modelName: 'students',
+      tableName: 'students',
+      timestamps: true,
+    },
+  );
   return students;
 };

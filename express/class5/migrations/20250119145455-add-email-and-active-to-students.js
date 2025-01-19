@@ -4,6 +4,7 @@ module.exports = {
     return queryInterface.addColumn('students', 'email', {
       type: Sequelize.STRING,
       allowNull: true, // Puedes poner `false` si es obligatorio
+      unique: true, // El email debe ser único
     })
       .then(() => {
         return queryInterface.addColumn('students', 'active', {
