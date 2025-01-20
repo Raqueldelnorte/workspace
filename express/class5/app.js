@@ -6,6 +6,13 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  // Se define la cabecera HTTP con el tipo de contenido
+  res.set('Content-Type', 'text/plain');
+  // Se responde, en el cuerpo de la respuesta con el mensaje "Hello World!!"
+  res.status(200).send('Hello Sequilize!!');
+});
+
 // Obtener todos los estudiantes
 app.get('/students', (req, res) => {
   students.getAll().then((results) => res.json(results));
