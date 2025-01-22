@@ -1,0 +1,26 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Welcome, <%= teacher ? teacher.user.email : 'Guest' %>!</h1>
+    
+    <% if (teacher) { %>
+      <h2>Here are the details of the teacher associated with your account:</h2>
+      <p><strong>Name:</strong> <%= teacher.name %></p>
+      <p><strong>Email:</strong> <%= teacher.user.email %></p>
+      <p><strong>Subject:</strong> <%= teacher.subject %></p>
+    <% } else { %>
+      <p>No teacher associated with your account.</p>
+    <% } %>
+
+    <form method="post" action="/logout">
+      <input type="submit" value="Cerrar sesión" />
+    </form>
+  </body>
+</html>
