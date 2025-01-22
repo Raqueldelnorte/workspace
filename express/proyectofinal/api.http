@@ -1,51 +1,53 @@
-### Obtener todos los estudiantes
-GET http://localhost:3000/students
+### Probando endpoints de usuarios
+### Obtener todos los usuarios
+GET http://localhost:3000/api/users
 
-### Obtener un estudiante por id
-GET http://localhost:3000/students/1
+### Obtener un usuario por id
+GET http://localhost:3000/api/users/1
 
-### Crear un estudiante con datos válidos
-POST http://localhost:3000/students
+### Crear un nuevo usuario con datos válido
+POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "name": "Lucy",
-    "last_name": "Liu",
-    "date_of_birth": "03-02-2001",
-    "email": "lliu@example.com",
-    "active": true
+  "email": "newuser@example.com",
+  "password": "securepassword",
+  "type": "user"
 }
 
-### Crear un estudiante con email inválido
-POST http://localhost:3000/students
+### Actualizar un usuario por su ID
+PUT http://localhost:3000/api/users/1
 Content-Type: application/json
 
 {
-    "name": "David",
-    "last_name": "Smith",
-    "date_of_birth": "12-06-1999",
-    "email": "david.smith",
-    "active": true
+  "email": "updateduser@example.com",
+  "password": "newsecurepassword",
+  "type": "admin"
 }
 
-### Crear un estudiante con fecha de nacimiento inválida
-POST http://localhost:3000/students
+### Eliminar un usuario por su ID me da error - COMPROBAR
+DEL http://localhost:3000/api/users/5
+Content-Type: application/json"
+
+
+### Endpoints para profesores
+### Ver estudiantes de un profesor. Em este caso el 1. 
+GET http://localhost:3000/api/teachers/1/students
 Content-Type: application/json
 
-{
-    "name": "Laura",
-    "last_name": "Jones",
-    "date_of_birth": "12-06-99",
-    "email": "laura.jones@example.com",
-    "active": true
-}
-### Introduzco una fecha correcta dd-mm-yyyy    
-POST http://localhost:3000/students
+### Endpoints para activar usuarios
+
+POST http://localhost:3000/api/users/1/active
 Content-Type: application/json
 
-{
-  "name": "Luna",
-  "last_name": "Yan",
-  "date_of_birth": "25-01-2025",
-  "email": "luna.yan@example.com"
-}
+### Obtener el estado de activación de un usuario.
+GET http://localhost:3000/api/users/1/active
+Content-Type: application/json
+
+### No se puede borrar un usuario con profesor asociado
+DELETE http://localhost:3000/api/users/3
+Content-Type: application/json
+
+### Borra profesor sin alumnos asociados
+DELETE http://localhost:3000/api/teachers/3
+Content-Type: application/json
