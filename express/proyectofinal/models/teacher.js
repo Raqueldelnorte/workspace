@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'users', // Asegúrate de que apunte a 'users'
+        model: 'users',
         key: 'id',
       },
     },

@@ -1,4 +1,4 @@
-### Probando endpoints de usuarios
+### Probando endpoints de USUARIOS
 ### Obtener todos los usuarios
 GET http://localhost:3000/api/users
 
@@ -29,12 +29,6 @@ Content-Type: application/json
 DEL http://localhost:3000/api/users/5
 Content-Type: application/json"
 
-
-### Endpoints para profesores
-### Ver estudiantes de un profesor. Em este caso el 1. 
-GET http://localhost:3000/api/teachers/1/students
-Content-Type: application/json
-
 ### Endpoints para activar usuarios
 
 POST http://localhost:3000/api/users/1/active
@@ -43,6 +37,83 @@ Content-Type: application/json
 ### Obtener el estado de activación de un usuario.
 GET http://localhost:3000/api/users/1/active
 Content-Type: application/json
+
+
+### Endpoints para PROFESORES
+### Obtener todos los profesores
+GET http://localhost:3000/api/teachers
+Content-Type: application/json
+
+### Obtener un profesor por id
+GET http://localhost:3000/api/teachers/1
+Content-Type: application/json
+
+### Dar de alta un profesor
+POST http://localhost:3000/api/teachers
+Content-Type: application/json
+
+{
+  "dni": "12348878A",
+  "name": "Francisco",
+  "lastName": "Cruz",
+  "dateOfBirth": "1989-02-20 00:00:00+00",
+  "userId": 1
+}
+### Actualizar los datos de un profesor
+PUT http://localhost:3000/api/teachers/1
+Content-Type: application/json
+
+{
+  "dni": "12345678A",
+  "name": "Rosanita",
+  "lastName": "López",
+  "dateOfBirth": "1985-02-20 00:00:00+00",
+  "userId": 1
+}
+
+### Eliminar un profesor por ID
+DELETE http://localhost:3000/api/teachers/4
+
+### Probando endpoints de STUDENTS
+### Obtener todos los estudiantes
+GET http://localhost:3000/api/students
+Content-Type: application/json
+
+### Obtener un estudiante por su ID
+GET http://localhost:3000/api/students/1
+Content-Type: application/json
+
+### Crear un nuevo estudiante
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+  "dni": "1231233435A",
+  "name": "Alberto",
+  "lastName": "Cruz",
+  "dateOfBirth": "2006-03-15 00:00:00+00",
+  "teacherId": 2
+}
+### Actualizar un estudiante por su ID
+PUT http://localhost:3000/api/students/1
+Content-Type: application/json
+
+{
+  "dni": "1231233435A",
+  "name": "Ionete",
+  "lastName": "Cruz",
+  "dateOfBirth": "2006-03-15 00:00:00+00",
+  "teacherId": 2
+}
+
+### Borrar un estudiante por su ID  
+DELETE http://localhost:3000/api/students/3 
+Content-Type: application/json  
+
+### Ver estudiantes de un profesor. Em este caso el 1. 
+GET http://localhost:3000/api/teachers/1/students
+Content-Type: application/json
+
 
 ### No se puede borrar un usuario con profesor asociado
 DELETE http://localhost:3000/api/users/3
