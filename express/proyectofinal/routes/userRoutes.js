@@ -40,7 +40,13 @@ function isAdmin(req, res, next) {
   }
   return res.status(401).send('No tienes permisos para acceder a esta página');
 }
-
+// Middleware para verificar si el usuario está autenticado
+function isAuthenticated(req, res, next) {
+  if (req.session.isLoggedIn) {
+    return next();
+  }
+  return res.status(401).json({ error: 'No autorizado' });
+}
 // GET /home
 router.get('/home', async (req, res) => {
   if (!req.session.isLoggedIn) {

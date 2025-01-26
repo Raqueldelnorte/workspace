@@ -7,11 +7,10 @@ const router = express.Router();
 
 // GET /login
 router.get('/', (req, res) => {
-  // Si ya está logueado, redirige al home
   if (req.session.isLoggedIn) {
     return res.redirect('/home');
   }
-  res.sendFile(path.join(__dirname, '../views', 'login.html'));
+  res.render('login'); // Renderiza login.ejs (asegúrate de renombrar login.html a login.ejs)
 });
 
 // POST /login
@@ -44,7 +43,7 @@ router.post('/', async (req, res) => {
     res.redirect('/home');
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error en el servidor');
+    res.status(500).send('Ha ocurrido un error, inténtalo de nuevo más tarde');
   }
 });
 

@@ -1,123 +1,142 @@
+ESTRUCTURA DEL PROYECTO
+proyectofinal
+EJEMPLOS CON CURL
+
+### Probando endpoints de USUARIOS
+
+### Obtener todos los usuarios
+
+curl -X GET http://localhost:3000/api/users
+
+### Obtener un usuario por id
+
+curl -X GET http://localhost:3000/api/users/1
+
+### Crear un nuevo usuario con datos válidos
+
+curl -X POST http://localhost:3000/api/users \
+-H "Content-Type: application/json" \
+-d '{"email": "otheruser@example.com", "password": "otherpassword", "type": "user"}'
+
+### Actualizar un usuario por su ID
+
+curl -X PUT http://localhost:3000/api/users/1 \
+-H "Content-Type: application/json" \
+-d '{"email": "actualizo@example.com", "password": "newsecurepassword", "type": "admin"}'
+
+### Eliminar un usuario por su ID
+
+curl -X DELETE http://localhost:3000/api/users/7 -H "Content-Type: application/json"
+
+### Endpoints para activar usuario
+
+curl -X POST http://localhost:3000/api/users/3/active \
+-H "Content-Type: application/json"
+
+### Obtener el estado de activación de un usuario.
+
+curl -X GET http://localhost:3000/api/users/1/active \
+-H "Content-Type: application/json"
+
+### Endpoints para PROFESORES
+
+### Obtener todos los profesores
+
+curl -X GET http://localhost:3000/api/teachers
+
+### Obtener un profesor por id
+
+curl -X GET http://localhost:3000/api/teachers/1 \
+-H "Content-Type: application/json"
+
+### Dar de alta un profesor
+
+curl -X POST http://localhost:3000/api/teachers \
+-H "Content-Type: application/json" \
+-d '{"dni": "12348878A", "name": "Francisco", "lastName": "Cruz", "dateOfBirth": "1989-02-20 00:00:00+00", "userId": 1}'
+
+### Actualizar los datos de un profesor
+
+curl -X PUT http://localhost:3000/api/teachers/1 \
+-H "Content-Type: application/json" \
+-d '{"dni": "12345678A", "name": "Rosanita", "lastName": "López", "dateOfBirth": "1985-02-20 00:00:00+00", "userId": 1}'
+
+### Eliminar un profesor por ID
+
+curl -X DELETE http://localhost:3000/api/teachers/4 \
+-H "Content-Type: application/json"
+
+### Probando endpoints de STUDENTS
+
+### Obtener todos los estudiantes
+
+curl -X GET http://localhost:3000/api/students \
+-H "Content-Type: application/json"
+
+### Obtener un estudiante por su ID
+
+curl -X GET http://localhost:3000/api/students/1 \
+-H "Content-Type: application/json"
+
+### Crear un nuevo estudiante
+
+curl -X POST http://localhost:3000/api/students \
+-H "Content-Type: application/json" \
+-d '{"dni": "1231233435A", "name": "Alberto", "lastName": "Cruz", "dateOfBirth": "2006-03-15 00:00:00+00", "teacherId": 2}'
+
+### Actualizar un estudiante por su ID
+
+curl -X PUT http://localhost:3000/api/students/1 \
+-H "Content-Type: application/json" \
+-d '{"dni": "1231233435A", "name": "Ionete", "lastName": "Cruz", "dateOfBirth": "2006-03-15 00:00:00+00", "teacherId": 2}'
+
+### Borrar un estudiante por su ID
+
+curl -X DELETE http://localhost:3000/api/students/3 \
+-H "Content-Type: application/json"
+
+### Ver estudiantes de un profesor. En este caso el 2.
+
+curl -X GET http://localhost:3000/api/teachers/2/students \
+-H "Content-Type: application/json"
+
+### Usuario NO borrado con profesor asociado
+
+curl -X DELETE http://localhost:3000/api/users/2 \
+-H "Content-Type: application/json"
+
+### Borra profesor sin alumnos asociados. Borrado teachers 5
+
+curl -X DELETE http://localhost:3000/api/teachers/5 \
+-H "Content-Type: application/json"
+
+### El profesor existe y el usuario asociado está activo (el 2 es false)
+
+curl -X GET http://localhost:3000/api/teachers/2/students \
+-H "Content-Type: application/json"
+
+### JSON de alumnos del profesor ordenados por fecha nacimiento. He tenido que cambiar el teacher 2 a active para que funcione.
+
+curl -X GET http://localhost:3000/api/teachers/2/students \
+ -H "Content-Type: application/json"
+
+### Usuario existe y actualizar el campo active a true
+ curl -X POST http://localhost:3000/api/users/1/activate \
+  -H "Content-Type: application/json"
+
+### Usuario existe solo muestra campo active
+curl -X GET http://localhost:3000/api/users/1/active \
+-H "Content-Type: application/json"
+
+### Prueba de login
+curl -X POST http://localhost:3000/login \
+-H "Content-Type: application/json" \
+-d '{"username": "user@example.com", "password": "user123"}'
 
 
 
-### Pruebas de Login y Token
+### Probando el /api/token
 
-# 1. Prueba el login
-
-POST http://localhost:3000/login
-Content-Type: application/json
-
-{
-"email": "user@example.com",
-"password": "user123"
-}  //me intenta buscar los datos del profesor.
-
-# 2. Obtener un token JWT
-
-POST http://localhost:3000/api/token
-Content-Type: application/json
-
-{
-"username": "user@example.com",
-"password": "user123"
-}
-
-### Pruebas de Usuarios (/api/users)
-
-# 3. Obtener todos los usuarios
-
-GET http://localhost:3000/api/users
-
-# 4. Obtener un usuario por ID
-
-GET http://localhost:3000/api/users/1
-
-# 5. Crear un nuevo usuario
-
-POST http://localhost:3000/api/users
-Content-Type: application/json
-
-{
-"email": "newuser@example.com",
-"password": "newuser123",
-"type": "student"
-}
-
-# 6. Actualizar un usuario
-
-PUT http://localhost:3000/api/users/1
-Content-Type: application/json
-
-{
-"email": "updateduser@example.com",
-"password": "updateduser123",
-"type": "teacher"
-}
-
-# 7. Eliminar un usuario
-
-DELETE http://localhost:3000/api/users/2
-
-# 8. Activar un usuario
-
-POST http://localhost:3000/api/users/3/active
-
-# 9. Verificar si un usuario está activo
-
-GET http://localhost:3000/api/users/3/active
-
-### Pruebas de Profesores (/api/teachers)
-
-# 10. Obtener todos los profesores
-
-GET http://localhost:3000/api/teachers
-
-# 11. Obtener un profesor por ID
-
-GET http://localhost:3000/api/teachers/2
-
-# 12. Crear un nuevo profesor
-
-POST http://localhost:3000/api/teachers
-Content-Type: application/json
-
-{
-"name": "John Doe",
-"email": "johndoe@example.com",
-"subject": "Math",
-"userId": 1
-}
-
-# 13. Actualizar un profesor
-
-PUT http://localhost:3000/api/teachers/2
-Content-Type: application/json
-
-{
-"name": "Updated Name",
-"email": "updatedemail@example.com",
-"subject": "Physics",
-"userId": 1
-}
-
-# 14. Eliminar un profesor
-
-DELETE http://localhost:3000/api/teachers/2
-
-### Pruebas de Home y Logout
-
-# 15. Ver la página de inicio (si no eres admin)
-
-GET http://localhost:3000/home
-Cookie: connect.sid=<reemplazar-con-tu-cookie-de-sesión>
-
-# 16. Logout
-
-POST http://localhost:3000/logout
-
-### Ruta raíz
-
-# 17. Prueba la ruta raíz
-
-GET http://localhost:3000/
+curl -X POST http://localhost:3000/api/token \
+-H "Content-Type: application/json" \
+-d '{"username": "user@example.com", "password": "user123"}'
