@@ -2,11 +2,6 @@
     text-align: center;
   }
   
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
   .App-header {
     background-color: #282c34;
     min-height: 100vh;
@@ -18,7 +13,22 @@
     color: white;
   }
   
-  .App-link {
-    color: #61dafb;
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    margin-top: 20px;
+  }
+  
+  .App-button {
+    background-color: #61dafb;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .App-button:hover {
+    background-color: #21a1f1;
   }
   
