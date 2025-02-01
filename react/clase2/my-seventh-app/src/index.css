@@ -1,0 +1,5 @@
+h1 {
+  color: blue;          /* Cambia el color del texto */
+  font-size: 3rem;      /* Cambia el tamaño de la fuente */
+  text-align: center;   /* Centra el texto */
+}
