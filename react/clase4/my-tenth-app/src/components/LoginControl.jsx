@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Greeting from "./Greeting";
-
+import Warning from './Warning';
 
 class LoginControl extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class LoginControl extends Component {
 
   render() {
     // Asignamos el botón dependiendo de si el usuario está logueado o no
+    const isLoggedIn = this.state.isLoggedIn;
     let button;
     if (this.state.isLoggedIn) {
       button = <button onClick={this.handleLogoutClick}>Cerrar sesión</button>;
@@ -34,6 +35,9 @@ class LoginControl extends Component {
     }
     return (
       <div>
+        {/* Renderizamos el componente Warning con la prop warn */}
+        <Warning warn={!isLoggedIn} />
+        
         <Greeting isLoggedIn={this.state.isLoggedIn} />
         {button}
       </div>
