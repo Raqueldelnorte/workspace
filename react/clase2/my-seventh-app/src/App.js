@@ -1,14 +1,12 @@
 import React, { Component } from 'react'; 
 import Table from './Table';
 import './App.css';
+import Form from './form';
 
 class App extends Component {
   state = {
-    people: [
-      { name: 'John', job: 'Developer' },
-      { name: 'Maya', job: 'Architect' },
-    ]
-  };
+    people: []
+};
 
 removePeople = (index) => {
   const { people } = this.state;
@@ -17,6 +15,9 @@ removePeople = (index) => {
       return i !== index;
     }),
   });
+};
+handleSubmit = (person) => {
+  this.setState({ people: [...this.state.people, person] });
 };
 render() {
   const title = <h1>Nice People</h1>;
@@ -27,6 +28,7 @@ render() {
       removePeople={this.removePeople}
       title= {title} 
       />
+      <Form handleSubmit={this.handleSubmit} />
     </div>
   );
   }
