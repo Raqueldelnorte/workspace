@@ -7,31 +7,26 @@ const TableHeader = () => {
         <tr>
           <th>Name</th>
           <th>Job</th>
-          <th>Action</th> {/* Añadimos una columna para el botón de eliminar */}
+          <th>Remove</th> {/* Añadimos una columna para el botón de eliminar */}
         </tr>
       </thead>
     );
   };
 // Componente funcional con función tradicional
 function TableBody(props) {
-    const { peopleData, removePeople } = props;  // Extraemos removePeople también de las props
-  
+  const rows = props.peopleData.map((row, index) => {
     return (
-      <tbody>
-        {peopleData.map((person, index) => (
-          <tr key={index}> {/* Usamos index como key para cada fila */}
-            <td>{person.name}</td>
-            <td>{person.job}</td>
-            <td>
-              {/* Botón para eliminar la persona, pasa el índice a removePeople */}
-              <button onClick={() => removePeople(index)}>Eliminar</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.job}</td>
+        <td>
+          <button onClick={() => props.removePeople(index)}>Delete</button> {/* Añadimos un botón para eliminar */}
+        </td>
+      </tr>
     );
-  }
-
+  });
+return <tbody>{rows}</tbody>;
+}
 // Componente de clase
 class Table extends Component {
   render() {
