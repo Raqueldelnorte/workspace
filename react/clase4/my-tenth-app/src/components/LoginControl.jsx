@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Greeting from "./Greeting";
 import Warning from './Warning';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 class LoginControl extends Component {
   constructor(props) {
@@ -37,7 +39,6 @@ class LoginControl extends Component {
       <div>
         {/* Renderizamos el componente Warning con la prop warn */}
         <Warning warn={!isLoggedIn} />
-        
         <Greeting isLoggedIn={this.state.isLoggedIn} />
         {button}
       </div>

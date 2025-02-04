@@ -1,10 +1,14 @@
 import React from 'react';
 
-function Warning({ warn }) {
-    if (warn) {
-    return <div className="warning">Warning!!</div>;
+const Warning = (props) => {
+  if (!props.warn) {
+    return null;
   }
-  return null;
+  return (
+    <div className="warning">
+      ¡Warning!
+    </div>
+  );
 }
 
 export default Warning;
