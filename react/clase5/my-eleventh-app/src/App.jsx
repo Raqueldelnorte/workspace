@@ -1,42 +1,60 @@
-import React from "react";
-import "./App.css";
+// src/App.jsx
+import React from 'react';
+import Form from './Form';  // Importamos el formulario
+import StudentList from './StudentList';  // Importamos el componente para la lista de estudiantes
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
-
-    // Enlazamos los métodos para que 'this' funcione correctamente
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      editableValue: '',  // Estado para el campo editable
+    };
   }
 
-  // Método para manejar el cambio en el input
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Formulario enviado');
+  };
 
-  // Método para manejar el envío del formulario
-  handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
-    event.preventDefault(); // Evita que la página se recargue
-  }
+  handleChange = (event) => {
+    this.setState({ editableValue: event.target.value });
+  };
 
   render() {
+    const students = [
+      { id: 1, name: 'María River' },
+      { id: 2, name: 'Lucas Moon' },
+    ];
+
     return (
-      <div className="App">
-        <h2>Formulario en React</h2>
+      <div>
+        <h1>Ejemplo de Formulario</h1>
+        
+        {/* Mostrar el formulario principal */}
+        <Form />
+
+        {/* Mostrar el formulario con campos */}
         <form onSubmit={this.handleSubmit}>
           <label>
-            Name:{" "}
+            No editable:
+            <input type="text" value="hi" readOnly />
+          </label>
+          
+          <label>
+            Editable:
             <input
               type="text"
-              value={this.state.value}
+              value={this.state.editableValue}
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Submit</button>
+
+          <input type="submit" value="Submit" />
         </form>
+
+        {/* Mostrar la lista de estudiantes */}
+        <h2>Student List</h2>
+        <StudentList students={students} />
       </div>
     );
   }
