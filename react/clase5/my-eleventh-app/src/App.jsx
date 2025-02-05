@@ -2,7 +2,7 @@
 import React from 'react';
 import Form from './Form';  // Importamos el formulario
 import StudentList from './StudentList';  // Importamos el componente para la lista de estudiantes
-
+import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
