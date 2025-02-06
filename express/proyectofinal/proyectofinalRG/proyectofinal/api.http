@@ -1,0 +1,165 @@
+### Probando endpoints de USUARIOS
+### Obtener todos los usuarios
+GET http://localhost:3000/api/users
+
+### Obtener un usuario por id
+GET http://localhost:3000/api/users/1
+
+### Crear un nuevo usuario con datos válido
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "email": "newuser@example.com",
+  "password": "securepassword",
+  "type": "user"
+}
+
+### Actualizar un usuario por su ID
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
+
+{
+  "email": "updateduser@example.com",
+  "password": "newsecurepassword",
+  "type": "admin"
+}
+
+### Eliminar un usuario por su ID
+DEL http://localhost:3000/api/users/7
+Content-Type: application/json"
+
+### Endpoints para activar usuarios
+
+POST http://localhost:3000/api/users/1/active
+Content-Type: application/json
+
+### Obtener el estado de activación de un usuario.
+GET http://localhost:3000/api/users/1/active
+Content-Type: application/json
+
+
+### Endpoints para PROFESORES
+### Obtener todos los profesores
+GET http://localhost:3000/api/teachers
+Content-Type: application/json
+
+### Obtener un profesor por id
+GET http://localhost:3000/api/teachers/1
+Content-Type: application/json
+
+### Dar de alta un profesor
+POST http://localhost:3000/api/teachers
+Content-Type: application/json
+
+{
+  "dni": "12348878A",
+  "name": "Francisco",
+  "lastName": "Cruz",
+  "dateOfBirth": "1989-02-20 00:00:00+00",
+  "userId": 1
+}
+### Actualizar los datos de un profesor
+PUT http://localhost:3000/api/teachers/1
+Content-Type: application/json
+
+{
+  "dni": "12345678A",
+  "name": "Rosanita",
+  "lastName": "López",
+  "dateOfBirth": "1985-02-20 00:00:00+00",
+  "userId": 1
+}
+
+### Eliminar un profesor por ID
+DELETE http://localhost:3000/api/teachers/4
+Content-Type: application/json
+
+
+### Probando endpoints de STUDENTS
+### Obtener todos los estudiantes
+GET http://localhost:3000/api/students
+Content-Type: application/json
+
+### Obtener un estudiante por su ID
+GET http://localhost:3000/api/students/1
+Content-Type: application/json
+
+### Crear un nuevo estudiante
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+  "dni": "1231233435A",
+  "name": "Alberto",
+  "lastName": "Cruz",
+  "dateOfBirth": "2006-03-15 00:00:00+00",
+  "teacherId": 2
+}
+### Actualizar un estudiante por su ID
+PUT http://localhost:3000/api/students/1
+Content-Type: application/json
+
+{
+  "dni": "1231233435A",
+  "name": "Ionete",
+  "lastName": "Cruz",
+  "dateOfBirth": "2006-03-15 00:00:00+00",
+  "teacherId": 2
+}
+
+### Borrar un estudiante por su ID  
+DELETE http://localhost:3000/api/students/3 
+Content-Type: application/json  
+
+### Ver estudiantes de un profesor. En este caso el 2. 
+GET http://localhost:3000/api/teachers/2/students
+Content-Type: application/json
+
+
+### Usuario NO BORRADO con profesor asociado
+DELETE http://localhost:3000/api/users/2
+Content-Type: application/json
+
+### Borra profesor sin alumnos asociados
+DELETE http://localhost:3000/api/teachers/3
+Content-Type: application/json
+
+
+### Profesor existe y usuario asociado activo
+GET http://localhost:3000/api/teachers/2/students
+Content-Type: application/json
+
+### listado de alumnos del profesor ordenados 
+###por fecha de nacimiento. Cambio  active a true
+GET http://localhost:3000/api/teachers/2/students
+Content-Type: application/json  
+
+### Usuario existe y actualizar el campo active a true
+POST http://localhost:3000/api/users/1/activate
+Content-Type: application/json
+
+### Usuario existe solo muestra campo active
+GET http://localhost:3000/api/users/1/active
+Content-Type: application/json
+
+### Prueba del login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "user@example.com",
+  "password": "user123"
+}
+
+
+
+
+### Probando el /api/token
+POST http://localhost:3000/api/token
+Content-Type: application/json
+
+{
+  "username": "user@example.com",
+  "password": "user123"
+}
